@@ -69,6 +69,11 @@ class ApkUploadTask extends TrackPublisherTask<Boolean> {
             existingVersionCodes.add(apk.getVersionCode());
         }
 
+        if(expansionFiles != null)
+        {
+            existingVersionCodes.addAll(expansionFiles.keySet());
+        }
+
         // Upload each of the APKs
         logger.println(String.format("Uploading %d APK(s) with application ID: %s%n", apkFiles.size(), applicationId));
         final ArrayList<Integer> uploadedVersionCodes = new ArrayList<>();
